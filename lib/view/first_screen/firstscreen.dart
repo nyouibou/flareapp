@@ -42,6 +42,7 @@ class FirstScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       color: Color.fromRGBO(112, 76, 190, 1)),
                 ),
+                Text("das")
               ],
             )),
           ),
