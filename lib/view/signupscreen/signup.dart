@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:flareapp/view/otpvalidationscreen/otpvalidation.dart';
 import 'package:flutter/material.dart';
 
 class Signup extends StatelessWidget {
@@ -79,19 +80,28 @@ class Signup extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            height: 60,
-            width: 200,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: Colors.white),
-            child: Center(
-                child: Text(
-              "Send",
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w600,
-                  color: Color.fromRGBO(112, 76, 190, 1)),
-            )),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => OTPValidatorPage(),
+                  ));
+            },
+            child: Container(
+              height: 60,
+              width: 200,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), color: Colors.white),
+              child: Center(
+                  child: Text(
+                "Send",
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600,
+                    color: Color.fromRGBO(112, 76, 190, 1)),
+              )),
+            ),
           )
         ],
       ),

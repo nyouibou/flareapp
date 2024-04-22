@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flareapp/view/first_screen/firstscreen.dart';
+import 'package:flareapp/view/homescreen/homescreen.dart';
 import 'package:flareapp/view/signupscreen/signup.dart';
 import 'package:flutter/material.dart';
 
@@ -99,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FirstScreen(),
+                    builder: (context) => HomeScreen(),
                   ));
             },
             child: Container(

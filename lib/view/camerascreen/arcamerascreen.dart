@@ -18,7 +18,7 @@ class _ARCameraScreenState extends State<ARCameraScreen> {
 
   Future<void> initializeCamera() async {
     cameras = await availableCameras();
-    cameraController = CameraController(cameras[0], ResolutionPreset.max);
+    cameraController = CameraController(cameras[0], ResolutionPreset.veryHigh);
     await cameraController.initialize();
     if (mounted) {
       setState(() {});
@@ -36,11 +36,39 @@ class _ARCameraScreenState extends State<ARCameraScreen> {
     if (cameraController == null || !cameraController.value.isInitialized) {
       return Container();
     }
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('AR Camera Screen'),
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: <Widget>[
+            // Camera Preview
+            Positioned.fill(
+              child: CameraPreview(cameraController),
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 20,
+              child: Container(
+                height: 20,
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(
+                      0.5), // Adjust the color and opacity as needed
+                  borderRadius:
+                      BorderRadius.circular(20), // Adjust the radius as needed
+                ),
+                child: Text(
+                  'Your Content Here',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-      body: CameraPreview(cameraController),
     );
   }
 }
