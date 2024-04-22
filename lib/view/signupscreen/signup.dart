@@ -82,7 +82,7 @@ class Signup extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
+              Navigator.pop(
                   context,
                   MaterialPageRoute(
                     builder: (context) => OTPValidatorPage(),

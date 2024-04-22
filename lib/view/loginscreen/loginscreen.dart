@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                     builder: (context) => HomeScreen(),
@@ -130,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pop(
                       context,
                       MaterialPageRoute(
                         builder: (context) => Signup(),
