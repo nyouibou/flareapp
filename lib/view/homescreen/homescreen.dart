@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables
 
+import 'package:flareapp/view/first_screen/firstscreen.dart';
+import 'package:flareapp/view/first_screen/newapi.dart';
+import 'package:flareapp/view/mapscreen/mapscreen.dart';
 import 'package:flareapp/view/profilescreen/profilescreen.dart';
 import 'package:flareapp/view/settingsscreen/settingsscreen.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +16,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    Text('Home'),
-    Text('Search'),
-    ProfileScreen(),
+    NewsScreen(),
+    FirstScreen(),
+    MapScreen(),
+    Profilescreen(),
     SettingsScreen()
   ];
 
@@ -33,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Color(0xff7D48EA),
+        selectedItemColor: Color(0xff7D48EA),
         showSelectedLabels: true,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -41,7 +46,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            label: 'Search',
+            label: 'Search AR',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.map),
+            label: 'NearBy',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
@@ -53,7 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
         onTap: _onItemTapped,
       ),
     );

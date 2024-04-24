@@ -35,10 +35,8 @@ class _OTPValidatorPageState extends State<OTPValidatorPage> {
                   Container(
                     width: 50,
                     decoration: BoxDecoration(
-                      color:
-                          Colors.white, // Change the color to the desired color
-                      borderRadius: BorderRadius.circular(
-                          10), // Optional: Adjust border radius as needed
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextField(
                       textAlign: TextAlign.center,

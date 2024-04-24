@@ -33,7 +33,7 @@ class _ARCameraScreenState extends State<ARCameraScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (cameraController == null || !cameraController.value.isInitialized) {
+    if (cameraController == true || !cameraController.value.isInitialized) {
       return Container();
     }
     return SafeArea(
