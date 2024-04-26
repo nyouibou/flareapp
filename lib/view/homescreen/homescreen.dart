@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables
 
 import 'package:flareapp/view/first_screen/firstscreen.dart';
-import 'package:flareapp/view/first_screen/newapi.dart';
 import 'package:flareapp/view/mapscreen/mapscreen.dart';
 import 'package:flareapp/view/profilescreen/profilescreen.dart';
 import 'package:flareapp/view/settingsscreen/settingsscreen.dart';
@@ -16,7 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    NewsScreen(),
     FirstScreen(),
     MapScreen(),
     Profilescreen(),
@@ -40,10 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: Color(0xff7D48EA),
         showSelectedLabels: true,
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search AR',

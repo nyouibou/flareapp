@@ -1,0 +1,3 @@
+0 Chair
+1 Laptop
+2 projector
