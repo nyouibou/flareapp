@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison, prefer_const_constructors, use_key_in_widget_constructors
+
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
@@ -81,8 +83,27 @@ class _ARCameraScreenState extends State<ARCameraScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (!cameraController.value.isInitialized) {
-      return Container();
+    if (cameraController == null || !cameraController.value.isInitialized) {
+      return Scaffold(
+        backgroundColor: Colors.black,
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    } else if (cameraController.value.hasError) {
+      // Display an error message if the camera initialization fails
+      return Scaffold(
+        backgroundColor: Colors.red, // Background color for the error screen
+        body: Center(
+          child: Text(
+            'Error initializing camera. Please check permissions and try again.',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+        ),
+      );
     }
     return SafeArea(
       child: Scaffold(
@@ -103,11 +124,13 @@ class _ARCameraScreenState extends State<ARCameraScreen> {
                   color: Colors.black.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Text(
-                  'Detected Object: $detectedObject',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
+                child: Center(
+                  child: Text(
+                    'Detected Place: $detectedObject',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
               ),

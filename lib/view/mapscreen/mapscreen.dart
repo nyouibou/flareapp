@@ -17,7 +17,7 @@ class MapScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: TextField(
+                    child: TextFormField(
                       decoration: InputDecoration(
                         hintText: 'Search...',
                         border: OutlineInputBorder(),
@@ -27,9 +27,7 @@ class MapScreen extends StatelessWidget {
                   SizedBox(width: 8.0),
                   IconButton(
                     icon: Icon(Icons.search),
-                    onPressed: () {
-                      // Perform search action here
-                    },
+                    onPressed: () {},
                   ),
                 ],
               ),
@@ -37,8 +35,8 @@ class MapScreen extends StatelessWidget {
             Expanded(
               child: FlutterMap(
                 options: MapOptions(
-                  initialCenter: LatLng(10.8505, 76.2711),
-                  initialZoom: 9.2,
+                  initialCenter: LatLng(10.0614, 76.3263),
+                  initialZoom: 12,
                 ),
                 children: [
                   TileLayer(

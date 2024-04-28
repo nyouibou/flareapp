@@ -4,6 +4,7 @@ import 'package:flareapp/view/first_screen/firstscreen.dart';
 import 'package:flareapp/view/mapscreen/mapscreen.dart';
 import 'package:flareapp/view/profilescreen/profilescreen.dart';
 import 'package:flareapp/view/settingsscreen/settingsscreen.dart';
+import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -33,30 +34,30 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: Color(0xff7D48EA),
-        selectedItemColor: Color(0xff7D48EA),
-        showSelectedLabels: true,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+      bottomNavigationBar: FlashyTabBar(
+        selectedIndex: _selectedIndex,
+        showElevation: true,
+        onItemSelected: (index) => setState(() {
+          _selectedIndex = index;
+        }),
+        items: [
+          FlashyTabBarItem(
             icon: Icon(Icons.search),
-            label: 'Search AR',
+            title: Text('Search AR'),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'NearBy',
+          FlashyTabBarItem(
+            icon: Icon(Icons.location_on),
+            title: Text('NearBy'),
           ),
-          BottomNavigationBarItem(
+          FlashyTabBarItem(
             icon: Icon(Icons.person),
-            label: 'Profile',
+            title: Text('Profile'),
           ),
-          BottomNavigationBarItem(
+          FlashyTabBarItem(
             icon: Icon(Icons.settings),
-            label: 'Settings',
+            title: Text('Settings'),
           ),
         ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
       ),
     );
   }

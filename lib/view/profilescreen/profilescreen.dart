@@ -1,11 +1,24 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flareapp/view/loginscreen/loginscreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:image_picker/image_picker.dart';
 
-class Profilescreen extends StatelessWidget {
+class Profilescreen extends StatefulWidget {
   const Profilescreen({Key? key});
 
+  @override
+  State<Profilescreen> createState() => _ProfilescreenState();
+}
+
+class _ProfilescreenState extends State<Profilescreen> {
+  XFile? pickedImage;
+
+  CollectionReference collecitonReference =
+      FirebaseFirestore.instance.collection("users");
+  var url;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -124,20 +137,31 @@ class Profilescreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
-                  child: Container(
-                    height: 60,
-                    width: 400,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Color(0xff7D48EA))),
-                    child: Center(
-                        child: Text(
-                      "Sign Out",
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff7D48EA)),
-                    )),
+                  child: InkWell(
+                    onTap: () async {
+                      await FirebaseAuth.instance.signOut();
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          ),
+                          (route) => false);
+                    },
+                    child: Container(
+                      height: 60,
+                      width: 400,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Color(0xff7D48EA))),
+                      child: Center(
+                          child: Text(
+                        "Sign Out",
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff7D48EA)),
+                      )),
+                    ),
                   ),
                 ),
               ),
