@@ -3,6 +3,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flareapp/view/loginscreen/loginscreen.dart';
+import 'package:flareapp/view/profilescreen/widgets/labsscreen.dart';
+import 'package:flareapp/view/profilescreen/widgets/msgscreen.dart';
+import 'package:flareapp/view/profilescreen/widgets/savedlocation.dart';
+import 'package:flareapp/view/settingsscreen/widgets/deleteacnt.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -60,7 +64,7 @@ class _ProfilescreenState extends State<Profilescreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Shin-chan",
+                                "Achu",
                                 style: TextStyle(
                                     fontSize: 28, fontWeight: FontWeight.bold),
                               ),
@@ -96,6 +100,11 @@ class _ProfilescreenState extends State<Profilescreen> {
                 trailing: Icon(Icons.arrow_forward, color: Color(0xff7D48EA)),
                 onTap: () {
                   // Handle tapping on Settings
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SavedLocationsPage(),
+                      ));
                 },
               ),
               ListTile(
@@ -103,10 +112,15 @@ class _ProfilescreenState extends State<Profilescreen> {
                   "images/Layout.png",
                   scale: 20,
                 ),
-                title: Text('Orders', style: TextStyle(fontSize: 16)),
+                title: Text('Labs', style: TextStyle(fontSize: 16)),
                 trailing: Icon(Icons.arrow_forward, color: Color(0xff7D48EA)),
                 onTap: () {
                   // Handle tapping on Privacy
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LabsPage(),
+                      ));
                 },
               ),
               ListTile(
@@ -118,6 +132,11 @@ class _ProfilescreenState extends State<Profilescreen> {
                 trailing: Icon(Icons.arrow_forward, color: Color(0xff7D48EA)),
                 onTap: () {
                   // Handle tapping on Notifications
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MessageScreen(),
+                      ));
                 },
               ),
               ListTile(
@@ -129,6 +148,11 @@ class _ProfilescreenState extends State<Profilescreen> {
                 trailing: Icon(Icons.arrow_forward, color: Color(0xff7D48EA)),
                 onTap: () {
                   // Handle tapping on Notifications
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DeleteAccountPage(),
+                      ));
                 },
               ),
               SizedBox(

@@ -1,5 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flareapp/view/settingsscreen/widgets/languages.dart';
+import 'package:flareapp/view/settingsscreen/widgets/loginsettings.dart';
+import 'package:flareapp/view/settingsscreen/widgets/notifications.dart';
+import 'package:flareapp/view/settingsscreen/widgets/privacysecurity.dart';
+import 'package:flareapp/view/supportscreen/supportscreen.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -28,8 +33,11 @@ class SettingsScreen extends StatelessWidget {
                 Icons.arrow_forward,
               ),
               onTap: () {
-                // Navigate to notification settings page
-                // Implement your navigation logic here
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginSettingsPage(),
+                    ));
               },
             ),
             ListTile(
@@ -42,8 +50,11 @@ class SettingsScreen extends StatelessWidget {
                 Icons.arrow_forward,
               ),
               onTap: () {
-                // Navigate to privacy settings page
-                // Implement your navigation logic here
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SupportCenterPage(),
+                    ));
               },
             ),
             ListTile(
@@ -56,8 +67,11 @@ class SettingsScreen extends StatelessWidget {
                 Icons.arrow_forward,
               ),
               onTap: () {
-                // Navigate to account settings page
-                // Implement your navigation logic here
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PrivacySecurityScreen(),
+                    ));
               },
             ), // Divider for visual separation
             ListTile(
@@ -70,8 +84,11 @@ class SettingsScreen extends StatelessWidget {
                 Icons.arrow_forward,
               ),
               onTap: () {
-                // Navigate to about page
-                // Implement your navigation logic here
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LanguagesPage(),
+                    ));
               },
             ),
             ListTile(
@@ -84,8 +101,11 @@ class SettingsScreen extends StatelessWidget {
                 Icons.arrow_forward,
               ),
               onTap: () {
-                // Navigate to help & feedback page
-                // Implement your navigation logic here
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NotificationsPage(),
+                    ));
               },
             ),
             SizedBox(
