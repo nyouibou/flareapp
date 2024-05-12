@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 class LabsPage extends StatelessWidget {
@@ -10,12 +12,14 @@ class LabsPage extends StatelessWidget {
       body: ListView(
         children: [
           LabItem(
-            labName: 'Feature A',
-            description: 'Description of Feature A.',
+            labName: 'Markerless Tracking',
+            description:
+                ' place virtual objects in your environment without needing special markers, making the experience feel more natural.',
           ),
           LabItem(
-            labName: 'Feature B',
-            description: 'Description of Feature B.',
+            labName: 'Environmental Understanding',
+            description:
+                "to analyze and interpret the user's surroundings to provide contextually relevant experiences.",
           ),
         ],
       ),

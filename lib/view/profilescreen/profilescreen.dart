@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, prefer_typing_uninitialized_variables, use_key_in_widget_constructors, avoid_unnecessary_containers, use_build_context_synchronously
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,7 +6,8 @@ import 'package:flareapp/view/loginscreen/loginscreen.dart';
 import 'package:flareapp/view/profilescreen/widgets/labsscreen.dart';
 import 'package:flareapp/view/profilescreen/widgets/msgscreen.dart';
 import 'package:flareapp/view/profilescreen/widgets/savedlocation.dart';
-import 'package:flareapp/view/settingsscreen/widgets/deleteacnt.dart';
+import 'package:flareapp/view/profilescreen/widgets/deleteacnt.dart';
+import 'package:flareapp/view/settingsscreen/widgets/feedbackscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -141,6 +142,22 @@ class _ProfilescreenState extends State<Profilescreen> {
               ),
               ListTile(
                 leading: Image.asset(
+                  "images/Envelope.png",
+                  scale: 20,
+                ),
+                title: Text('Feedback', style: TextStyle(fontSize: 16)),
+                trailing: Icon(Icons.arrow_forward, color: Color(0xff7D48EA)),
+                onTap: () {
+                  // Handle tapping on Notifications
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FeedbackScreen(),
+                      ));
+                },
+              ),
+              ListTile(
+                leading: Image.asset(
                   "images/Trash.png",
                   scale: 20,
                 ),
@@ -156,8 +173,9 @@ class _ProfilescreenState extends State<Profilescreen> {
                 },
               ),
               SizedBox(
-                height: 100,
+                height: 50,
               ),
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
